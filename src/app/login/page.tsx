@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import Link from 'next/link';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -79,7 +80,13 @@ export default function LoginPage() {
             <Button variant="default" type="submit" className="w-full">
               Sign In
             </Button>
-          </form>
+            <div className="flex justify-center text-sm">
+              Don't have account? &nbsp;
+              <Link href="/register" className="hover:underline text-primary">
+                Register
+              </Link>
+            </div>
+            </form>
         </CardContent>
       </Card>
     </div>

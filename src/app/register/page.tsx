@@ -9,6 +9,8 @@ import { toast } from 'sonner';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import Link from 'next/link';
+import { Toaster } from '@/components/Toaster';
 
 export default function RegisterPage() {
   const [firstName, setFirstName] = useState('');
@@ -36,6 +38,7 @@ export default function RegisterPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-muted">
+      <Toaster />
       <Card className="w-full max-w-sm">
         <CardHeader>
           <CardTitle className="text-center text-2xl">Register</CardTitle>
@@ -86,6 +89,8 @@ export default function RegisterPage() {
               />
             </div>
             <Button type="submit" className="w-full">Register</Button>
+            <div className='flex justify-center text-sm'>Aleady have account?  &nbsp; <Link href="/login" className="hover:underline text-primary"> Login</Link></div>
+
           </form>
         </CardContent>
       </Card>

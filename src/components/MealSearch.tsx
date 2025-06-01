@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { getCalories } from '@/lib/api';
 import { ResultCard } from '@/components/ResultCard';
 import { toast } from 'sonner';
+import { Toaster } from './Toaster';
 
 export function MealSearch() {
   const [dishName, setDishName] = useState('');
@@ -28,7 +29,7 @@ export function MealSearch() {
       );
     } catch (err: unknown) {
       if (err instanceof Error) {
-        toast(err.message);
+        toast.error(err.message);
       } else {
         toast('Something went wrong');
       }
@@ -40,6 +41,7 @@ export function MealSearch() {
   return (
     <form onSubmit={handleSearch} className="flex p-3 flex-col gap-4 w-full max-w-xl mx-auto">
       <div className="flex flex-col sm:flex-row items-center gap-4">
+        <Toaster  />
         <Input
           type="text"
           placeholder="Enter dish name"
@@ -60,6 +62,7 @@ export function MealSearch() {
         <Button type="submit" disabled={loading}>
           {loading ? 'Searching...' : 'Search'}
         </Button>
+         
       </div>
       {(result || loading) && <ResultCard result={result} loading={loading} />}
     </form>
