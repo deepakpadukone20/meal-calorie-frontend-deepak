@@ -25,14 +25,18 @@ A simple, responsive web application to search and log meals with their calorie 
 1. **Login Page**
 
    ![Login Page](./public/screenshots/login.png)
+   
+2. **Register Page**
 
-2. **Dashboard + Meal Search**
+   ![Login Page](./public/screenshots/register.png)
+
+3. **Dashboard + Meal Search**
 
    ![Dashboard](./public/screenshots/dashboard.png)
 
-3. **Calorie Result + Meal History**
+4. **Dashboard + Error**
 
-   ![Results](./public/screenshots/results.png)
+   ![Results](./public/screenshots/error.png)
 
 ---
 
