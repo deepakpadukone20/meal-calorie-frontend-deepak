@@ -34,7 +34,7 @@ export default function RootLayout({
         >
           <Header />
           {children}
-          <footer className="w-full text-sm flex justify-end sticky bottom-3"><Link target="_blank" className=" text-blue-400" href={'https://www.deepakpadukone.com'}>&copy; {' '}Deepak Padukone Manjunath</Link></footer>
+          <footer className="w-full text-sm flex justify-end sticky bottom-3"><Link target="_blank" className=" text-blue-400" href={'https://www.deepakpadukone.com'}> {' '}Deepak Padukone Manjunath</Link></footer>
         </body>
       </html>
     </ThemeProviderWrapper>
