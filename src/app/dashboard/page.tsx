@@ -1,22 +1,13 @@
 'use client';
 
-import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuthStore } from '@/stores/authStore';
+import { withAuthGuard } from '@/lib/withAuthGuard';
 import { MealSearch } from '@/components/MealSearch';
 import Image from 'next/image';
+import { MealHistory } from '@/components/MealHistory';
 
-export default function DashboardPage() {
-  const router = useRouter();
-  const user = useAuthStore((state) => state.user);
-
-  useEffect(() => {
-    if (!user) {
-      router.push('/login');
-    }
-  }, [user, router]);
-
-  if (!user) return null;
+function DashboardPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center">
@@ -25,7 +16,10 @@ export default function DashboardPage() {
         <Image alt="meal" src="/meal.svg" width={100} height={100} />
         </div>
         <MealSearch />
+        <MealHistory />
       </div>
     </div>
   );
 }
+
+export default withAuthGuard(DashboardPage);

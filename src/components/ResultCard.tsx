@@ -1,8 +1,27 @@
+import React from 'react';
+
 import { CounterNumber } from "./CounterNumber";
 import Loader from "./loader";
+import { useMealStore } from '@/stores/mealStore';
+import { useEffect } from 'react';
+
 
 
 export function ResultCard({ result, loading }: { result: any; loading: boolean }) {
+
+  const addMeal = useMealStore((state) => state.addMeal);
+
+  useEffect(() => {
+    if (!loading && result?.dishName) {
+      addMeal({
+        dishName: result.dishName,
+        servings: result.servings,
+        calories_per_serving: result.calories_per_serving,
+        total_calories: result.total_calories,
+      });
+    }
+  }, [loading, result]);
+
  
 
   return (

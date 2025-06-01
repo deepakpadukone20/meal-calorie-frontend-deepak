@@ -1,6 +1,6 @@
 export async function getCalories(dishName: string, servings: number) {
   const token = localStorage.getItem('token');
-  const res = await fetch("http://localhost:8000/get-calories", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/get-calories`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -20,7 +20,7 @@ export async function registerUser(
   email: string,
   password: string
 ) {
-  const res = await fetch("http://localhost:8000/auth/register", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/auth/register`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
