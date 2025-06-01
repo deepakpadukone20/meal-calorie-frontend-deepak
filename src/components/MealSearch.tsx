@@ -24,13 +24,14 @@ export function MealSearch() {
       const data = await getCalories(dishName, servings);
       setResult(data);
       toast(
-         `${data.total_calories} total calories for ${data.servings} servings.`,
+        `${data.total_calories} total calories for ${data.servings} servings.`,
       );
-    } catch (err: any) {
-      toast(
-        err.message,
-       
-      );
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        toast(err.message);
+      } else {
+        toast('Something went wrong');
+      }
     } finally {
       setLoading(false);
     }

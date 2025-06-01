@@ -4,10 +4,10 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuthStore } from '@/stores/authStore';
 
-export function withAuthGuard<P>(Component: React.ComponentType<P>) {
-  return function GuardedComponent(props: P) {
-    const router = useRouter();
+export function withAuthGuard(Component) {
+  const GuardedComponent = (props) => {
     const user = useAuthStore((state) => state.user);
+    const router = useRouter();
 
     useEffect(() => {
       if (!user) {
@@ -16,6 +16,9 @@ export function withAuthGuard<P>(Component: React.ComponentType<P>) {
     }, [user, router]);
 
     if (!user) return null;
+
     return <Component {...props} />;
   };
+
+  return GuardedComponent;
 }

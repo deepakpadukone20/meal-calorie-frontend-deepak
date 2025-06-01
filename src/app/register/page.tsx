@@ -25,8 +25,12 @@ export default function RegisterPage() {
       await registerUser(firstName, lastName, email, password);
       toast('Registration successful!');
       router.push('/login');
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError('Something went wrong');
+      }
     }
   };
 

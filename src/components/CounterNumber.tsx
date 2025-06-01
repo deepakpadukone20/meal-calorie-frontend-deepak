@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-export function CounterNumber({ value, loading, className='' }: { value: any, loading: boolean, className?: string }) {
+export function CounterNumber({ value, loading, className = '' }: { value: number |undefined, loading: boolean, className?: string }) {
 
     const [animatedCalories, setAnimatedCalories] = useState(0);
 

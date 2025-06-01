@@ -4,15 +4,12 @@ import Link from 'next/link';
 import { useAuthStore } from '@/stores/authStore';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from './ThemeToggle';
-import { useTheme } from 'next-themes';
 import Image from 'next/image';
 
 export function Header() {
   const user = useAuthStore((state) => state.user);
   const logout = useAuthStore((state) => state.logout);
-  const { resolvedTheme } = useTheme();
 
-  const isDark = resolvedTheme === 'dark';
 
   return (
     <div
