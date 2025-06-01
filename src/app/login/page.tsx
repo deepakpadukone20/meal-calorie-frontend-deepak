@@ -81,7 +81,7 @@ export default function LoginPage() {
               Sign In
             </Button>
             <div className="flex justify-center text-sm">
-              Don't have account? &nbsp;
+              Don &apos;t have account? &nbsp;
               <Link href="/register" className="hover:underline text-primary">
                 Register
               </Link>
