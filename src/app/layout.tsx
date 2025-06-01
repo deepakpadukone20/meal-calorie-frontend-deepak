@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { ThemeProviderWrapper } from './ThemeProviderWrapper';
 import { Header } from '@/components/Header';
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,8 +32,9 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <Header/>
+          <Header />
           {children}
+          <footer className="w-full text-sm flex justify-end sticky bottom-3"><Link target="_blank" className=" text-blue-400" href={'https://www.deepakpadukone.com'}>&copy; {' '}Deepak Padukone Manjunath</Link></footer>
         </body>
       </html>
     </ThemeProviderWrapper>
